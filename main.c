@@ -1,6 +1,5 @@
-#include <iostream>
+#include "list.h"
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
-    return 0;
+    t_d_cell cell = createCell(5,1);
 }

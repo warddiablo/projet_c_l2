@@ -3,4 +3,4 @@ project(untitled)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(untitled main.c cell.h)
+add_executable(untitled main.c cell.h list.h cell.c list.c)
