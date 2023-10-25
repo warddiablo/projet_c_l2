@@ -4,7 +4,7 @@
 t_d_cell createCell(int val, int nbrniveaux){
     t_d_cell cell;
     cell.valeur = val;
-    cell.nbrniveaux = nbrniveaux;
+    cell.nbrniv = nbrniveaux;
     cell.next = (t_d_cell*) malloc(nbrniveaux*sizeof(t_d_cell));
     return cell;
 }

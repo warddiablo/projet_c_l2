@@ -4,7 +4,7 @@
 // structure de la cellule
 typedef struct s_d_cell{
     int valeur;
-    int nbrniveaux;
+    int nbrniv;
     struct s_d_cell *next;
 }t_d_cell;
 
