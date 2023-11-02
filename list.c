@@ -60,5 +60,19 @@ void printListAligne(t_d_list list){
 }
 
 void inserCellTri(t_d_list* list, t_d_cell* cell){
-
+    t_d_cell *temp;
+    for (int i=0;i<cell->nbrniv;i++){ // on fait une boucle pour insérer la cellule à tous ses niveaux dans la liste
+        temp = list->head[i]; // on initialise une cellule à la cellule de tete de liste au n-ième niveau
+        if(list->head[i] == NULL || list->head[i]->valeur > cell->valeur){ // si la liste est vide ou que la 1ere cellule de la liste est plus grande que la cellule cell (valeur)
+            cell->next[i] = list->head[i]; // on initialise la cellule suivante avec la tete de la liste
+            list->head[i] = cell; // on raccroche la cellule à la liste
+        }
+        else {
+            while (temp->next[i] != NULL && temp->next[i]->valeur < cell->valeur){ // sinon on parcours toute la liste jusqu'à tant qu'elle soit vide ou qu'une cellule de la liste soit plus grande que cell (valeur)
+                temp = temp->next[i]; // incrémentation
+            }
+            cell->next[i] = temp->next[i]; // on initialise la cellule suivante avec une cellule de la liste
+            temp->next[i] = cell; // on raccroche la cellule à la liste
+        }
+    }
 }
