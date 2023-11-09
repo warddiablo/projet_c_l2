@@ -2,6 +2,7 @@
 #define UNTITLED_CELL_H
 #include "stdio.h"
 #include "stdlib.h"
+#include "math.h"
 
 // structure de la cellule
 typedef struct s_d_cell{
@@ -11,7 +12,7 @@ typedef struct s_d_cell{
 }t_d_cell;
 
 // fonction permettant de créer une cellule
-t_d_cell createCell(int val, int nbrniveaux);
+t_d_cell* createCell(int val, int nbrniveaux);
 // fonction permettant de supprimer une cellule
 void supprCell(t_d_cell*);
 

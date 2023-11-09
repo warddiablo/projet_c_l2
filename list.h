@@ -19,6 +19,14 @@ void printListAll(t_d_list);
 // affiche toute la liste avec les differents niveaux en alignant les cellules
 void printListAligne(t_d_list);
 // insere une cellule en fonction de l'ordre croissant
-void inserCellTri(t_d_list* list, t_d_cell* cell);
+void inserCellTri(t_d_list*, t_d_cell*);
 
+// Partie 2 :
+
+// créer une liste avec 2^n-1 cellule, avec des valeurs allant de 1 à 2^n-1 et avec n niveaux
+t_d_list createList(int n);
+// recherche une valeur dans la liste, uniquement dans le niveau 0
+int isValInListClassic(t_d_list, int);
+// recherche une valeur dans la liste, à partir du niveau le plus haut
+int isValInListAdvanced(t_d_list, int);
 #endif //UNTITLED_LIST_H

@@ -76,3 +76,48 @@ void inserCellTri(t_d_list* list, t_d_cell* cell){
         }
     }
 }
+
+
+t_d_list createList(int n){
+    t_d_list list = createEmptyList(n);
+    int nbrcell = ((int)pow(2,n))-1; // initialisation du nombre de cellule, soit 2^n-1 cellules
+    int* levels = (int*) calloc(nbrcell, sizeof (int)); // création d'un tableau d'entier stockant les levels de notre liste, avec pour taille nbrcell
+    for (int i=1;i<=nbrcell;i++){
+        for (int j=1;j<n;j++){
+            if(!(i%((int)pow(2,j)))){ // si i est divisible par 2^j (avec j allant de 1 à n)
+                levels[i] += 1; // on ajoute un niveau
+            }
+        }
+    }
+    for (int i=nbrcell;i>0;i--){
+        t_d_cell* cell = createCell(i, levels[i]+1); // création d'une cellule avec comme valeur i et comme nbrniv l'entier+1 stocké dans le tableau levels
+        inserCellHead(&list,cell);
+    }
+    return list;
+}
+
+int isValInListClassic(t_d_list list, int val){
+    t_d_cell *temp;
+    temp = list.head[0]; // on initialise une cellule temporaire à la tete de liste au niveau 0
+    while (temp != NULL) {
+        if (temp->valeur == val) {
+            return 1; // si la valeur de la cellule est égal à la valeur recherché alors on retourne 1
+        }
+        temp = temp->next[0]; // on se déplace sur la cellule suivante
+    }
+    return 0; // la valeur n'a pas été trouvé, on retourne 0
+}
+
+int isValInListAdvanced(t_d_list list, int val){
+    for (int i=list.nbrniv-1;i>=0;i--){
+        t_d_cell *temp;
+        temp = list.head[i];
+        while (temp != NULL) {
+            if (temp->valeur == val) {
+                return 1; // si la valeur de la cellule est égal à la valeur recherché alors on retourne 1
+            }
+            temp = temp->next[0]; // on se déplace sur la cellule suivante
+        }
+    }
+    return 0; // la valeur n'a pas été trouvé, on retourne 0
+}
