@@ -1,4 +1,5 @@
 #include "list.h"
+#include "time.h"
 
 int main() {
     // Partie 1 :
@@ -17,8 +18,33 @@ int main() {
     printListAligne(list);*/
 
     // Partie 2 :
-    t_d_list list = createList(3);
-    printf("%d", isValInListClassic(list,4));
-    printf("%d\n", isValInListAdvanced(list,4));
-    printListAligne(list);
+    srand(time(NULL)); // initialisation du générateur de nombre aléatoire
+    FILE *log_file = fopen("log.txt","w");
+    char format[] = "%d\t%s\t%s\n" ;
+    char *time_lvl0;
+    char *time_all_levels;
+    for (int i=7;i<25;i++){
+        t_d_list list = createList(i);
+        int nb_cell = ((int)pow(2,i))-1;
+        printf("niveau teste : %d :\n",i);
+        startTimer();
+        for (int j=1;j<10000;j++){
+            int nb_alea = (rand()%nb_cell)+1;
+            isValInListClassic(list,nb_alea);
+        }
+        stopTimer();
+        time_lvl0 = getTimeAsString(); // fonction du module timer
+        displayTime();
+        startTimer();
+        for (int j=1;j<10000;j++){
+            int nb_alea = (rand()%nb_cell)+1;
+            isValInListAdvanced(list,nb_alea);
+        }
+        stopTimer();
+        time_all_levels = getTimeAsString();
+        displayTime();
+        fprintf(log_file,format,i,time_lvl0, time_all_levels);
+    }
+    fclose(log_file);
+    return 0;
 }

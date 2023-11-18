@@ -1,6 +1,7 @@
 #ifndef UNTITLED_LIST_H
 #define UNTITLED_LIST_H
 #include "cell.h"
+#include "timer.h"
 
 // structure pour les listes contenant les cellules
 typedef struct{
@@ -29,4 +30,6 @@ t_d_list createList(int n);
 int isValInListClassic(t_d_list, int);
 // recherche une valeur dans la liste, à partir du niveau le plus haut
 int isValInListAdvanced(t_d_list, int);
+
+
 #endif //UNTITLED_LIST_H

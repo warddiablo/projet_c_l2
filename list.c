@@ -109,15 +109,21 @@ int isValInListClassic(t_d_list list, int val){
 }
 
 int isValInListAdvanced(t_d_list list, int val){
+    t_d_cell *temp,*prev;
+    temp = list.head[list.nbrniv-1];
+    prev = NULL;
     for (int i=list.nbrniv-1;i>=0;i--){
-        t_d_cell *temp;
-        temp = list.head[i];
-        while (temp != NULL) {
-            if (temp->valeur == val) {
-                return 1; // si la valeur de la cellule est égal à la valeur recherché alors on retourne 1
-            }
-            temp = temp->next[0]; // on se déplace sur la cellule suivante
+        if(prev == NULL){
+            temp = list.head[i];
         }
+        while(temp != NULL && temp->valeur <= val){
+            if (temp->valeur == val){
+                return 1; // La valeur a été trouvée
+            }
+            prev = temp;
+            temp = temp->next[i];
+        }
+        temp = prev;
     }
     return 0; // la valeur n'a pas été trouvé, on retourne 0
 }
