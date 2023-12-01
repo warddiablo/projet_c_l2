@@ -110,20 +110,20 @@ int isValInListClassic(t_d_list list, int val){
 
 int isValInListAdvanced(t_d_list list, int val){
     t_d_cell *temp,*prev;
-    temp = list.head[list.nbrniv-1];
+    temp = list.head[list.nbrniv-1]; // on initialise une cellule temporaire a la tete de liste au dernier niveau
     prev = NULL;
-    for (int i=list.nbrniv-1;i>=0;i--){
+    for (int i=list.nbrniv-1;i>=0;i--){ // parcours de tous les niveaux de la liste, en commencant par le dernier niveau
         if(prev == NULL){
-            temp = list.head[i];
+            temp = list.head[i]; // on initialise la cellule temporaire a la tete de liste au niveau i
         }
-        while(temp != NULL && temp->valeur <= val){
+        while(temp != NULL && temp->valeur <= val){ // tant que la liste n'est pas entierement parcourue et que la valeur est supérieur a la valeur de la cellule
             if (temp->valeur == val){
                 return 1; // La valeur a été trouvée
             }
-            prev = temp;
-            temp = temp->next[i];
+            prev = temp; // on garde la cellule dans la variable prev
+            temp = temp->next[i]; // on se deplace sur la cellule suivante
         }
-        temp = prev;
+        temp = prev; // on reviens sur la cellule precedente
     }
     return 0; // la valeur n'a pas été trouvé, on retourne 0
 }
