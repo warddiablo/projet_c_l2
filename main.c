@@ -1,5 +1,7 @@
 #include "list.h"
 #include "time.h"
+#include "stockage.h"
+#include <string.h>
 
 int main() {
     // Partie 1 :
@@ -18,7 +20,7 @@ int main() {
     printListAligne(list);*/
 
     // Partie 2 :
-    srand(time(NULL)); // initialisation du générateur de nombre aléatoire
+    /*srand(time(NULL)); // initialisation du générateur de nombre aléatoire
     FILE *log_file = fopen("log.txt","w"); // ouverture et écriture dans le fichier log.txt
     char format[] = "%d\t%s\t%s\n" ; // format d'écriture dans le fichier
     char *time_lvl0; // temps mis pour la recherche au niveau 0
@@ -45,6 +47,9 @@ int main() {
         displayTime(); // affiche le temps (optionnelle)
         fprintf(log_file,format,i,time_lvl0, time_all_levels); // on ecrit dans le fichier les temps mis par les differentes fonctions
     }
-    fclose(log_file); // on ferme la lecture/ecriture du fichier
-    return 0;
+    fclose(log_file); // on ferme la lecture/ecriture du fichier*/
+
+    // Partie 3 :
+    listENTRY l;
+    menu(&l);
 }
