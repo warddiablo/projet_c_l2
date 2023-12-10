@@ -6,7 +6,8 @@
 int main() {
     // Partie 1 :
 
-    /*t_d_list list = createEmptyList(5);
+    /*
+    t_d_list list = createEmptyList(5);
     printf("Affichage de la liste vide :\n");
     printListAll(list);
     for(int i=1;i<6;i++){
@@ -18,11 +19,13 @@ int main() {
     printf("\nAffichage de la liste complete\n");
     printListAll(list);
     printf("\nAffichage de la liste complete et aligne\n");
-    printListAligne(list);*/
+    printListAligne(list);
+    */
 
     // Partie 2 :
 
-    /*srand(time(NULL)); // initialisation du générateur de nombre aléatoire
+    /*
+    srand(time(NULL)); // initialisation du générateur de nombre aléatoire
     FILE *log_file = fopen("log.txt","w"); // ouverture et écriture dans le fichier log.txt
     char format[] = "%d\t%s\t%s\n" ; // format d'écriture dans le fichier
     char *time_lvl0; // temps mis pour la recherche au niveau 0
@@ -49,14 +52,15 @@ int main() {
         displayTime(); // affiche le temps (optionnelle)
         fprintf(log_file,format,i,time_lvl0, time_all_levels); // on ecrit dans le fichier les temps mis par les differentes fonctions
     }
-    fclose(log_file); // on ferme la lecture/ecriture du fichier*/
+    fclose(log_file); // on ferme la lecture/ecriture du fichier
+    */
 
     // Partie 3 :
 
     listENTRY list = createEmptyListE(4);
     menu(&list);
 
-    // Test pour la partie 3
+    // Test pour la partie 3, pas fonctionnel
     /*listENTRY list = createEmptyListE(4);
     // Ouvrir le fichier des contacts en lecture
     FILE *file = fopen("contacts.txt", "r");
