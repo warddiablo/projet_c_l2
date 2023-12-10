@@ -8,7 +8,7 @@
 
 // structure contact
 typedef struct{
-    char* nom, prenom;
+    char *nom, *prenom;
 }CONTACT;
 
 typedef struct{
@@ -53,12 +53,21 @@ typedef struct{
 
 // fonction permettant la saisie d'une chaine de caractere
 char *scanString();
+int compareString(cellENTRY* cell1, cellENTRY* cell2);
 
 // fonction permettant d'afficher le menu
 void menu(listENTRY*);
 
 // fonction permettant de creer un contact avec l'insertion dans la liste
-void createContact(listENTRY*);
+cellENTRY* createContact();
+// insérer le contact dans la liste a niveau
+void inserCell(listENTRY*, cellENTRY*);
+
+// fonction permettant de créer une liste
+listENTRY createEmptyListE(int);
+// fonction permettant d'afficher la liste
+void printListNivE(listENTRY, int);
+void printAllListE(listENTRY);
 
 // fonction permettant de creer un rdv pour un contact
 void createRDV(cellENTRY*);

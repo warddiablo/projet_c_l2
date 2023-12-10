@@ -5,6 +5,7 @@
 
 int main() {
     // Partie 1 :
+
     /*t_d_list list = createEmptyList(5);
     printf("Affichage de la liste vide :\n");
     printListAll(list);
@@ -20,6 +21,7 @@ int main() {
     printListAligne(list);*/
 
     // Partie 2 :
+
     /*srand(time(NULL)); // initialisation du générateur de nombre aléatoire
     FILE *log_file = fopen("log.txt","w"); // ouverture et écriture dans le fichier log.txt
     char format[] = "%d\t%s\t%s\n" ; // format d'écriture dans le fichier
@@ -50,6 +52,37 @@ int main() {
     fclose(log_file); // on ferme la lecture/ecriture du fichier*/
 
     // Partie 3 :
-    listENTRY l;
-    menu(&l);
+
+    listENTRY list = createEmptyListE(4);
+    menu(&list);
+
+    // Test pour la partie 3
+    /*listENTRY list = createEmptyListE(4);
+    // Ouvrir le fichier des contacts en lecture
+    FILE *file = fopen("contacts.txt", "r");
+    // Lire chaque ligne du fichier
+    char line[256];
+    while (fgets(line, sizeof(line), file) != NULL) {
+        // Supprimer le caractère de nouvelle ligne s'il existe
+        size_t len = strlen(line);
+        if (len > 0 && line[len - 1] == '\n') {
+            line[len - 1] = '\0';
+        }
+        // Créer une cellule pour chaque contact
+        cellENTRY *newContact = (cellENTRY *)malloc(sizeof(cellENTRY));
+        // Extraire le nom et prénom à partir de la ligne
+        char *nom = strtok(line, " ");
+        char *prenom = strtok(NULL, " ");
+        // Allouer et copier le nom et le prénom dans la cellule
+        newContact->contact.nom = strdup(nom);
+        newContact->contact.prenom = strdup(prenom);
+        // Initialiser le reste de la cellule
+        newContact->nbrniv = 4;
+        newContact->next = (cellENTRY **)malloc(newContact->nbrniv * sizeof(cellENTRY *));
+        // Insérer la cellule dans la liste
+        inserCell(&list, newContact);
+    }
+    // Fermer le fichier
+    fclose(file);
+    printAllListE(list);*/
 }
